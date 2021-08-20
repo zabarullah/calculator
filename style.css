@@ -1,0 +1,121 @@
+html {
+    box-sizing: border-box; /* The box-sizing property allows us to include the padding and border in an element's  total width and height */
+}
+
+body {
+    margin: 0;
+    min-height: 100vh; /* 100 viewport height is the full height of the page - background will spread the entire viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+    /* background: linear-gradient(to right, #bdc3c7, #2c3e50); */
+}
+
+
+.calculator {
+    background: white;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* Display */
+.calculator-display {
+    background: black;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.calculator-display h1 {
+    margin: 0;
+    padding: 20px;
+    font-size: 45px;
+    font-family: 'Lucida Console', sans-serif;
+    font-weight: 100;
+    overflow-x: auto;
+}
+
+/* Custome scroll bar for display - from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp*/ 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Buttons */
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; 
+    padding: 10px;
+  }
+
+  button {
+      min-height: 50px;
+      font-size: 20px;
+      font-weight: 100;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: rgb(197, 197, 197);
+  }
+
+  button:hover {
+      filter: brightness(110%);
+  }
+
+  button:active {
+      /* transform: translateY(1px); will go down 1 px each time it is clicked */
+      transform: scale(0.95); /* Will make the button smaller to show 95% of original size */
+  }
+
+  button:focus {
+      outline: none;
+  }
+
+  .operator {
+      background: rgb(151, 151, 151);
+      color: white;
+      font-size: 30px;
+  }
+
+  .clear {
+      background: rgb(250, 97, 97);
+      color: white;
+  }
+
+  .clear:hover {
+    filter: brightness(90%);
+}
+
+  .equal-sign {
+    grid-column: -2;
+    grid-row: 2 / span 4;
+    background: rgb(13, 206, 87);
+  }
+
+  /* Media Query: large Smart Phone(vertical) */
+  @media screen and (max-width: 600px) {
+    .calculator {
+        width: 95%;
+    }
+}
